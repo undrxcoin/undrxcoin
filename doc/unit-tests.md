@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the skrtd tests manually, launch src/test/test_skrt .
+To run the undxd tests manually, launch src/test/test_undx .
 
-To add more skrtd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more undxd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the skrt-qt tests manually, launch src/qt/test/skrt-qt_test
+To run the undx-qt tests manually, launch src/qt/test/undx-qt_test
 
-To add more skrt-qt tests, add them to the `src/qt/test/` directory and
+To add more undx-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

@@ -137,7 +137,7 @@ void PrivacyDialog::on_pushButtonMintzPIV_clicked()
         return;
 
     if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN)) {
-        QMessageBox::information(this, tr("Mint Zerocoin"), tr("Zerocoin functionality is not enabled on the SikretCoin network yet."), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::information(this, tr("Mint Zerocoin"), tr("Zerocoin functionality is not enabled on the UndrxCoin network yet."), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
@@ -248,7 +248,7 @@ void PrivacyDialog::on_pushButtonSpendzPIV_clicked()
         return;
 
     if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN)) {
-        QMessageBox::information(this, tr("Spend Zerocoin"), tr("Zerocoin functionality is not enabled on the SikretCoin network yet."), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::information(this, tr("Spend Zerocoin"), tr("Zerocoin functionality is not enabled on the UndrxCoin network yet."), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
@@ -297,7 +297,7 @@ void PrivacyDialog::sendzPIV()
     }
     else{
         if (!address.IsValid()) {
-            QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Invalid SikretCoin Address"), QMessageBox::Ok, QMessageBox::Ok);
+            QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Invalid UndrxCoin Address"), QMessageBox::Ok, QMessageBox::Ok);
             ui->payTo->setFocus();
             return;
         }

@@ -99,7 +99,7 @@ public:
 
 private:
     int width, height, stride;
-    bool hasSikret;
+    bool hasUndrx;
     int channels;
     int bitsPerSample;
     QByteArray image;
@@ -118,7 +118,7 @@ const int BITS_PER_SAMPLE = 8;
 FreedesktopImage::FreedesktopImage(const QImage& img) : width(img.width()),
                                                         height(img.height()),
                                                         stride(img.width() * BYTES_PER_PIXEL),
-                                                        hasSikret(true),
+                                                        hasUndrx(true),
                                                         channels(CHANNELS),
                                                         bitsPerSample(BITS_PER_SAMPLE)
 {
@@ -140,7 +140,7 @@ FreedesktopImage::FreedesktopImage(const QImage& img) : width(img.width()),
 QDBusArgument& operator<<(QDBusArgument& a, const FreedesktopImage& i)
 {
     a.beginStructure();
-    a << i.width << i.height << i.stride << i.hasSikret << i.bitsPerSample << i.channels << i.image;
+    a << i.width << i.height << i.stride << i.hasUndrx << i.bitsPerSample << i.channels << i.image;
     a.endStructure();
     return a;
 }
@@ -148,7 +148,7 @@ QDBusArgument& operator<<(QDBusArgument& a, const FreedesktopImage& i)
 const QDBusArgument& operator>>(const QDBusArgument& a, FreedesktopImage& i)
 {
     a.beginStructure();
-    a >> i.width >> i.height >> i.stride >> i.hasSikret >> i.bitsPerSample >> i.channels >> i.image;
+    a >> i.width >> i.height >> i.stride >> i.hasUndrx >> i.bitsPerSample >> i.channels >> i.image;
     a.endStructure();
     return a;
 }

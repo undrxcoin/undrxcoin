@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both skrtd and skrt-qt, to make it harder for attackers to
+ * for both undxd and undx-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("SikretCoin Core");
+const std::string CLIENT_NAME("UndrxCoin Core");
 
 /**
  * Client version number

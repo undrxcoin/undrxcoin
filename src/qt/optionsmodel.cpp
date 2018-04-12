@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The SikretCoin developers
+// Copyright (c) 2018 The UndrxCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/skrt-config.h"
+#include "config/undx-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -62,7 +62,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::SKRT);
+        settings.setValue("nDisplayUnit", BitcoinUnits::UNDX);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
@@ -76,11 +76,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizeSikretCoinAmount"))
-        settings.setValue("nAnonymizeSikretCoinAmount", 1000);
+    if (!settings.contains("nAnonymizeUndrxCoinAmount"))
+        settings.setValue("nAnonymizeUndrxCoinAmount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizeSikretCoinAmount = settings.value("nAnonymizeSikretCoinAmount").toLongLong();
+    nAnonymizeUndrxCoinAmount = settings.value("nAnonymizeUndrxCoinAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -147,8 +147,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeSikretCoinAmount"))
-        SoftSetArg("-anonymizeskrtamount", settings.value("nAnonymizeSikretCoinAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeUndrxCoinAmount"))
+        SoftSetArg("-anonymizeundxamount", settings.value("nAnonymizeUndrxCoinAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -159,7 +159,7 @@ void OptionsModel::Reset()
 
     // Remove all entries from our QSettings object
     settings.clear();
-    resetSettings = true; // Needed in skrt.cpp during shotdown to also remove the window positions
+    resetSettings = true; // Needed in undx.cpp during shotdown to also remove the window positions
 
     // default setting for OptionsModel::StartAtStartup - disabled
     if (GUIUtil::GetStartOnSystemStartup())
@@ -228,8 +228,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizeSikretCoinAmount:
-            return QVariant(nAnonymizeSikretCoinAmount);
+        case AnonymizeUndrxCoinAmount:
+            return QVariant(nAnonymizeUndrxCoinAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -338,10 +338,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizeSikretCoinAmount:
-            nAnonymizeSikretCoinAmount = value.toInt();
-            settings.setValue("nAnonymizeSikretCoinAmount", nAnonymizeSikretCoinAmount);
-            emit anonymizeSikretCoinAmountChanged(nAnonymizeSikretCoinAmount);
+        case AnonymizeUndrxCoinAmount:
+            nAnonymizeUndrxCoinAmount = value.toInt();
+            settings.setValue("nAnonymizeUndrxCoinAmount", nAnonymizeUndrxCoinAmount);
+            emit anonymizeUndrxCoinAmountChanged(nAnonymizeUndrxCoinAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

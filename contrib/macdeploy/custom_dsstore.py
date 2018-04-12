@@ -54,7 +54,7 @@ ds['.']['icvp'] = icvp
 ds['.']['vSrn'] = ('long', 1)
 
 ds['Applications']['Iloc'] = (370, 156)
-ds['skrt-qt.app']['Iloc'] = (128, 156)
+ds['undx-qt.app']['Iloc'] = (128, 156)
 
 ds.flush()
 ds.close()

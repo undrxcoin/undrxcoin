@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between skrt-cli and skrtd)
- * of a given instance of the SikretCoin system.
+ * CBaseChainParams defines the base parameters (shared between undx-cli and undxd)
+ * of a given instance of the UndrxCoin system.
  */
 class CBaseChainParams
 {

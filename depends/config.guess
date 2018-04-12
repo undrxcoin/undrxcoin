@@ -259,7 +259,7 @@ case "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" in
     *:Sortix:*:*)
 	echo ${UNAME_MACHINE}-unknown-sortix
 	exit ;;
-    sikret:OSF1:*:*)
+    undrx:OSF1:*:*)
 	case $UNAME_RELEASE in
 	*4.0)
 		UNAME_RELEASE=`/usr/sbin/sizer -v | awk '{print $3}'`
@@ -272,38 +272,38 @@ case "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" in
 	# OSF/1 and Tru64 systems produced since 1995.  I hope that
 	# covers most systems running today.  This code pipes the CPU
 	# types through head -n 1, so we only detect the type of CPU 0.
-	SIKRET_CPU_TYPE=`/usr/sbin/psrinfo -v | sed -n -e 's/^  The sikret \(.*\) processor.*$/\1/p' | head -n 1`
+	SIKRET_CPU_TYPE=`/usr/sbin/psrinfo -v | sed -n -e 's/^  The undrx \(.*\) processor.*$/\1/p' | head -n 1`
 	case "$SIKRET_CPU_TYPE" in
 	    "EV4 (21064)")
-		UNAME_MACHINE=sikret ;;
+		UNAME_MACHINE=undrx ;;
 	    "EV4.5 (21064)")
-		UNAME_MACHINE=sikret ;;
+		UNAME_MACHINE=undrx ;;
 	    "LCA4 (21066/21068)")
-		UNAME_MACHINE=sikret ;;
+		UNAME_MACHINE=undrx ;;
 	    "EV5 (21164)")
-		UNAME_MACHINE=sikretev5 ;;
+		UNAME_MACHINE=undrxev5 ;;
 	    "EV5.6 (21164A)")
-		UNAME_MACHINE=sikretev56 ;;
+		UNAME_MACHINE=undrxev56 ;;
 	    "EV5.6 (21164PC)")
-		UNAME_MACHINE=sikretpca56 ;;
+		UNAME_MACHINE=undrxpca56 ;;
 	    "EV5.7 (21164PC)")
-		UNAME_MACHINE=sikretpca57 ;;
+		UNAME_MACHINE=undrxpca57 ;;
 	    "EV6 (21264)")
-		UNAME_MACHINE=sikretev6 ;;
+		UNAME_MACHINE=undrxev6 ;;
 	    "EV6.7 (21264A)")
-		UNAME_MACHINE=sikretev67 ;;
+		UNAME_MACHINE=undrxev67 ;;
 	    "EV6.8CB (21264C)")
-		UNAME_MACHINE=sikretev68 ;;
+		UNAME_MACHINE=undrxev68 ;;
 	    "EV6.8AL (21264B)")
-		UNAME_MACHINE=sikretev68 ;;
+		UNAME_MACHINE=undrxev68 ;;
 	    "EV6.8CX (21264D)")
-		UNAME_MACHINE=sikretev68 ;;
+		UNAME_MACHINE=undrxev68 ;;
 	    "EV6.9A (21264/EV69A)")
-		UNAME_MACHINE=sikretev69 ;;
+		UNAME_MACHINE=undrxev69 ;;
 	    "EV7 (21364)")
-		UNAME_MACHINE=sikretev7 ;;
+		UNAME_MACHINE=undrxev7 ;;
 	    "EV7.9 (21364A)")
-		UNAME_MACHINE=sikretev79 ;;
+		UNAME_MACHINE=undrxev79 ;;
 	esac
 	# A Pn.n version is a patched version.
 	# A Vn.n version is a released version.
@@ -315,14 +315,14 @@ case "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" in
 	exitcode=$?
 	trap '' 0
 	exit $exitcode ;;
-    Sikret\ *:Windows_NT*:*)
+    Undrx\ *:Windows_NT*:*)
 	# How do we know it's Interix rather than the generic POSIX subsystem?
 	# Should we change UNAME_MACHINE based on the output of uname instead
-	# of the specific Sikret model?
-	echo sikret-pc-interix
+	# of the specific Undrx model?
+	echo undrx-pc-interix
 	exit ;;
     21064:Windows_NT:50:3)
-	echo sikret-dec-winnt3.5
+	echo undrx-dec-winnt3.5
 	exit ;;
     Amiga*:UNIX_System_V:4.0:*)
 	echo m68k-unknown-sysv4
@@ -805,7 +805,7 @@ EOF
 	echo t90-cray-unicos${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
 	exit ;;
     CRAY*T3E:*:*:*)
-	echo sikretev5-cray-unicosmk${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	echo undrxev5-cray-unicosmk${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
 	exit ;;
     CRAY*SV1:*:*:*)
 	echo sv1-cray-unicos${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
@@ -915,15 +915,15 @@ EOF
 	UNAME_MACHINE=aarch64_be
 	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
 	exit ;;
-    sikret:Linux:*:*)
+    undrx:Linux:*:*)
 	case `sed -n '/^cpu model/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo` in
-	  EV5)   UNAME_MACHINE=sikretev5 ;;
-	  EV56)  UNAME_MACHINE=sikretev56 ;;
-	  PCA56) UNAME_MACHINE=sikretpca56 ;;
-	  PCA57) UNAME_MACHINE=sikretpca56 ;;
-	  EV6)   UNAME_MACHINE=sikretev6 ;;
-	  EV67)  UNAME_MACHINE=sikretev67 ;;
-	  EV68*) UNAME_MACHINE=sikretev68 ;;
+	  EV5)   UNAME_MACHINE=undrxev5 ;;
+	  EV56)  UNAME_MACHINE=undrxev56 ;;
+	  PCA56) UNAME_MACHINE=undrxpca56 ;;
+	  PCA57) UNAME_MACHINE=undrxpca56 ;;
+	  EV6)   UNAME_MACHINE=undrxev6 ;;
+	  EV67)  UNAME_MACHINE=undrxev67 ;;
+	  EV68*) UNAME_MACHINE=undrxev68 ;;
 	esac
 	objdump --private-headers /bin/sh | grep -q ld.so.1
 	if test "$?" = 0 ; then LIBC=gnulibc1 ; fi
@@ -1384,7 +1384,7 @@ EOF
     *:*VMS:*:*)
 	UNAME_MACHINE=`(uname -p) 2>/dev/null`
 	case "${UNAME_MACHINE}" in
-	    A*) echo sikret-dec-vms ; exit ;;
+	    A*) echo undrx-dec-vms ; exit ;;
 	    I*) echo ia64-dec-vms ; exit ;;
 	    V*) echo vax-dec-vms ; exit ;;
 	esac ;;

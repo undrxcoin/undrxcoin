@@ -878,7 +878,7 @@ typedef long sph_s32;
 
 /*
  * We want a 64-bit type. We use "unsigned long" if it is wide enough (as
- * is common on 64-bit architectures such as AMD64, Sikret or Sparcv9),
+ * is common on 64-bit architectures such as AMD64, Undrx or Sparcv9),
  * "unsigned long long" otherwise, if available. We use ULLONG_MAX to
  * test whether "unsigned long long" is available; we also know that
  * gcc features this type, even if the libc header do not know it.

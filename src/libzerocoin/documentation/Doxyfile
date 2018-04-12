@@ -473,13 +473,13 @@ INLINE_INFO            = YES
 
 # If the SORT_MEMBER_DOCS tag is set to YES (the default) then doxygen
 # will sort the (detailed) documentation of file and class members
-# sikretbetically by member name. If set to NO the members will appear in
+# undrxbetically by member name. If set to NO the members will appear in
 # declaration order.
 
 SORT_MEMBER_DOCS       = YES
 
 # If the SORT_BRIEF_DOCS tag is set to YES then doxygen will sort the
-# brief documentation of file, namespace and class members sikretbetically
+# brief documentation of file, namespace and class members undrxbetically
 # by member name. If set to NO (the default) the members will appear in
 # declaration order.
 
@@ -496,7 +496,7 @@ SORT_BRIEF_DOCS        = NO
 SORT_MEMBERS_CTORS_1ST = NO
 
 # If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the
-# hierarchy of group names into sikretbetical order. If set to NO (the default)
+# hierarchy of group names into undrxbetical order. If set to NO (the default)
 # the group names will appear in their defined order.
 
 SORT_GROUP_NAMES       = NO
@@ -507,7 +507,7 @@ SORT_GROUP_NAMES       = NO
 # not including the namespace part.
 # Note: This option is not very useful if HIDE_SCOPE_NAMES is set to YES.
 # Note: This option applies only to the class list, not to the
-# sikretbetical list.
+# undrxbetical list.
 
 SORT_BY_SCOPE_NAME     = NO
 
@@ -851,23 +851,23 @@ USE_HTAGS              = NO
 VERBATIM_HEADERS       = YES
 
 #---------------------------------------------------------------------------
-# configuration options related to the sikretbetical class index
+# configuration options related to the undrxbetical class index
 #---------------------------------------------------------------------------
 
-# If the SIKRETBETICAL_INDEX tag is set to YES, an sikretbetical index
+# If the SIKRETBETICAL_INDEX tag is set to YES, an undrxbetical index
 # of all compounds will be generated. Enable this if the project
 # contains a lot of classes, structs, unions or interfaces.
 
 SIKRETBETICAL_INDEX     = YES
 
-# If the sikretbetical index is enabled (see SIKRETBETICAL_INDEX) then
+# If the undrxbetical index is enabled (see SIKRETBETICAL_INDEX) then
 # the COLS_IN_SIKRET_INDEX tag can be used to specify the number of columns
 # in which this list will be split (can be a number in the range [1..20])
 
 COLS_IN_SIKRET_INDEX    = 5
 
 # In case all classes in a project start with a common prefix, all
-# classes will be put under the same header in the sikretbetical index.
+# classes will be put under the same header in the undrxbetical index.
 # The IGNORE_PREFIX tag can be used to specify one or more prefixes that
 # should be ignored while generating the index headers.
 

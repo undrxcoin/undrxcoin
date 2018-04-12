@@ -1,0 +1,26 @@
+[Unit]
+Description=UNDX's distributed currency daemon
+After=network.target
+
+[Service]
+User=undx
+Group=undx
+
+Type=forking
+PIDFile=/var/lib/undxd/undxd.pid
+
+ExecStart=/usr/bin/undxd -daemon -pid=/var/lib/undxd/undxd.pid \
+          -conf=/etc/undx/undx.conf -datadir=/var/lib/undxd
+
+ExecStop=-/usr/bin/undx-cli -conf=/etc/undx/undx.conf \
+         -datadir=/var/lib/undxd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

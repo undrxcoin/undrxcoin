@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package skrtd/skrt-qt
-for Debian-based Linux systems. If you compile skrtd/skrt-qt yourself, there are some useful files here.
+This directory contains files used to package undxd/undx-qt
+for Debian-based Linux systems. If you compile undxd/undx-qt yourself, there are some useful files here.
 
-## skrt: URI support ##
+## undx: URI support ##
 
 
-skrt-qt.desktop  (Gnome / Open Desktop)
+undx-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install skrt-qt.desktop
+	sudo desktop-file-install undx-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your skrtqt binary to `/usr/bin`
-and the `../../share/pixmaps/skrt128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your undxqt binary to `/usr/bin`
+and the `../../share/pixmaps/undx128.png` to `/usr/share/pixmaps`
 
-skrt-qt.protocol (KDE)
+undx-qt.protocol (KDE)
 

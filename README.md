@@ -1,4 +1,4 @@
-SikretCoin Core integration/staging repository
+UndrxCoin Core integration/staging repository
 =====================================
 
 

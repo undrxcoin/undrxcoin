@@ -60,7 +60,7 @@ typedef sph_s32 s32;
 /*
  * The powers of 41 modulo 257. We use exponents from 0 to 255, inclusive.
  */
-static const s32 sikret_tab[] = {
+static const s32 undrx_tab[] = {
 	  1,  41, 139,  45,  46,  87, 226,  14,  60, 147, 116, 130,
 	190,  80, 196,  69,   2,  82,  21,  90,  92, 174, 195,  28,
 	120,  37, 232,   3, 123, 160, 135, 138,   4, 164,  42, 180,
@@ -97,7 +97,7 @@ static const s32 sikret_tab[] = {
  * If, upon entry, the values of q[] are all in the -N..N range (where
  * N >= 98302) then the new values of q[] are in the -2N..2N range.
  *
- * Since sikret_tab[v] <= 256, maximum allowed range is for N = 8388608.
+ * Since undrx_tab[v] <= 256, maximum allowed range is for N = 8388608.
  */
 #define FFT_LOOP(rb, hk, as, id)   do { \
 		size_t u, v; \
@@ -111,23 +111,23 @@ static const s32 sikret_tab[] = {
 			s32 t; \
 			m = q[(rb) + u + 0]; \
 			n = q[(rb) + u + 0 + (hk)]; \
-			t = REDS2(n * sikret_tab[v + 0 * (as)]); \
+			t = REDS2(n * undrx_tab[v + 0 * (as)]); \
 			q[(rb) + u + 0] = m + t; \
 			q[(rb) + u + 0 + (hk)] = m - t; \
 		id: \
 			m = q[(rb) + u + 1]; \
 			n = q[(rb) + u + 1 + (hk)]; \
-			t = REDS2(n * sikret_tab[v + 1 * (as)]); \
+			t = REDS2(n * undrx_tab[v + 1 * (as)]); \
 			q[(rb) + u + 1] = m + t; \
 			q[(rb) + u + 1 + (hk)] = m - t; \
 			m = q[(rb) + u + 2]; \
 			n = q[(rb) + u + 2 + (hk)]; \
-			t = REDS2(n * sikret_tab[v + 2 * (as)]); \
+			t = REDS2(n * undrx_tab[v + 2 * (as)]); \
 			q[(rb) + u + 2] = m + t; \
 			q[(rb) + u + 2 + (hk)] = m - t; \
 			m = q[(rb) + u + 3]; \
 			n = q[(rb) + u + 3 + (hk)]; \
-			t = REDS2(n * sikret_tab[v + 3 * (as)]); \
+			t = REDS2(n * undrx_tab[v + 3 * (as)]); \
 			q[(rb) + u + 3] = m + t; \
 			q[(rb) + u + 3 + (hk)] = m - t; \
 		} \
@@ -168,7 +168,7 @@ static const s32 sikret_tab[] = {
 	} while (0)
 
 /*
- * When k=16, we have sikret=2. Multiplication by sikret^i is then reduced
+ * When k=16, we have undrx=2. Multiplication by undrx^i is then reduced
  * to some shifting.
  *
  * Output: within -591471..591723
@@ -281,7 +281,7 @@ fft64(unsigned char *x, size_t xs, s32 *q)
 	} while (0)
 
 /*
- * sikret^(127*i) mod 257
+ * undrx^(127*i) mod 257
  */
 static const unsigned short yoff_s_n[] = {
 	  1,  98,  95,  58,  30, 113,  23, 198, 129,  49, 176,  29,
@@ -298,7 +298,7 @@ static const unsigned short yoff_s_n[] = {
 };
 
 /*
- * sikret^(127*i) + sikret^(125*i) mod 257
+ * undrx^(127*i) + undrx^(125*i) mod 257
  */
 static const unsigned short yoff_s_f[] = {
 	  2, 156, 118, 107,  45, 212, 111, 162,  97, 249, 211,   3,

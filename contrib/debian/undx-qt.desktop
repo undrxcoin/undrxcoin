@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=UndrxCoin
+Comment=UndrxCoin P2P Cryptocurrency
+Comment[fr]=UndrxCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=UndrxCoin, eşten eşe kriptografik sanal para birimi
+Exec=undx-qt %u
+Terminal=false
+Type=Application
+Icon=undx128
+MimeType=x-scheme-handler/undx;
+Categories=Office;Finance;

@@ -49,7 +49,7 @@ public:
 	    READWRITE(t_2);
 	    READWRITE(t_3);
 	    READWRITE(t_4);
-	    READWRITE(s_sikret);
+	    READWRITE(s_undrx);
 	    READWRITE(s_beta);
 	    READWRITE(s_zeta);
 	    READWRITE(s_sigma);
@@ -78,7 +78,7 @@ private:
 	CBigNum t_3;
 	CBigNum t_4;
 
-	CBigNum s_sikret;
+	CBigNum s_undrx;
 	CBigNum s_beta;
 	CBigNum s_zeta;
 	CBigNum s_sigma;

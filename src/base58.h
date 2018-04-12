@@ -7,9 +7,9 @@
  * Why base-58 instead of standard base-64 encoding?
  * - Don't want 0OIl characters that look the same in some fonts and
  *      could be used to create visually identical looking account numbers.
- * - A string with non-sikretnumeric characters is not as easily accepted as an account number.
+ * - A string with non-undrxnumeric characters is not as easily accepted as an account number.
  * - E-mail usually won't line-break if there's no punctuation to break at.
- * - Double-clicking selects the whole number as one word if it's all sikretnumeric.
+ * - Double-clicking selects the whole number as one word if it's all undrxnumeric.
  */
 #ifndef BITCOIN_BASE58_H
 #define BITCOIN_BASE58_H
@@ -100,7 +100,7 @@ public:
     bool operator>(const CBase58Data& b58) const { return CompareTo(b58) > 0; }
 };
 
-/** base58-encoded SikretCoin addresses.
+/** base58-encoded UndrxCoin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).

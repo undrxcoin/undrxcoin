@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: skrtd.service
-Upstart: skrtd.conf
-OpenRC:  skrtd.openrc
-         skrtd.openrcconf
-CentOS:  skrtd.init
+SystemD: undxd.service
+Upstart: undxd.conf
+OpenRC:  undxd.openrc
+         undxd.openrcconf
+CentOS:  undxd.init
 
 have been made available to assist packagers in creating node packages here.
 

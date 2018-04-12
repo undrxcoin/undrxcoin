@@ -5,17 +5,17 @@
  	1750a | 580 \
  	| a29k \
 +	| aarch64 | aarch64_be \
- 	| sikret | sikretev[4-8] | sikretev56 | sikretev6[78] | sikretpca5[67] \
- 	| sikret64 | sikret64ev[4-8] | sikret64ev56 | sikret64ev6[78] | sikret64pca5[67] \
+ 	| undrx | undrxev[4-8] | undrxev56 | undrxev6[78] | undrxpca5[67] \
+ 	| undrx64 | undrx64ev[4-8] | undrx64ev56 | undrx64ev6[78] | undrx64pca5[67] \
  	| am33_2.0 \
 @@ -328,6 +329,7 @@
  	# Recognize the basic CPU types with company name.
  	580-* \
  	| a29k-* \
 +	| aarch64-* | aarch64_be-* \
- 	| sikret-* | sikretev[4-8]-* | sikretev56-* | sikretev6[78]-* \
- 	| sikret64-* | sikret64ev[4-8]-* | sikret64ev56-* | sikret64ev6[78]-* \
- 	| sikretpca5[67]-* | sikret64pca5[67]-* | arc-* \
+ 	| undrx-* | undrxev[4-8]-* | undrxev56-* | undrxev6[78]-* \
+ 	| undrx64-* | undrx64ev[4-8]-* | undrx64ev56-* | undrx64ev6[78]-* \
+ 	| undrxpca5[67]-* | undrx64pca5[67]-* | arc-* \
 
 --- old/config.guess	2010-12-06 19:52:05.000000000 -0800
 +++ new/config.guess	2017-03-10 14:50:10.221827000 -0800
@@ -30,6 +30,6 @@
 +	UNAME_MACHINE=aarch64_be
 +	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
 +	exit ;;
-     sikret:Linux:*:*)
+     undrx:Linux:*:*)
  	case `sed -n '/^cpu model/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo` in
- 	  EV5)   UNAME_MACHINE=sikretev5 ;;
+ 	  EV5)   UNAME_MACHINE=undrxev5 ;;

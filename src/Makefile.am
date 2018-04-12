@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += skrtd
+  bin_PROGRAMS += undxd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += skrt-cli skrt-tx
+  bin_PROGRAMS += undx-cli undx-tx
 endif
 
 .PHONY: FORCE
-# SikretCoin Core #
+# UndrxCoin Core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between skrtd and skrt-qt
+# server: shared between undxd and undx-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between skrtd and skrt-qt, but only linked
+# wallet: shared between undxd and undx-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between skrtd, and skrt-qt and non-server tools
+# common: shared between undxd, and undx-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between skrt-cli and skrt-qt
+# cli: shared between undx-cli and undx-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-skrtd_LDADD = \
+undxd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ skrtd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-skrtd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+undxd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-skrtd_LDADD += libbitcoin_wallet.a
+undxd_LDADD += libbitcoin_wallet.a
 endif
-skrtd_SOURCES = skrtd.cpp
+undxd_SOURCES = undxd.cpp
 #
 
 if TARGET_WINDOWS
-skrtd_SOURCES += skrtd-res.rc
+undxd_SOURCES += undxd-res.rc
 endif
 
-skrtd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-skrtd_CPPFLAGS = $(BITCOIN_INCLUDES)
-skrtd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+undxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+undxd_CPPFLAGS = $(BITCOIN_INCLUDES)
+undxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# skrt-cli binary #
-skrt_cli_LDADD = \
+# undx-cli binary #
+undx_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-skrt_cli_SOURCES = \
-  skrt-cli.cpp
+undx_cli_SOURCES = \
+  undx-cli.cpp
 
-skrt_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+undx_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# skrt-tx binary #
-skrt_tx_LDADD = \
+# undx-tx binary #
+undx_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ skrt_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-skrt_tx_SOURCES = skrt-tx.cpp
-skrt_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+undx_tx_SOURCES = undx-tx.cpp
+undx_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-skrt_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+undx_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-skrt_cli_SOURCES += skrt-cli-res.rc
+undx_cli_SOURCES += undx-cli-res.rc
 endif
-skrt_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+undx_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

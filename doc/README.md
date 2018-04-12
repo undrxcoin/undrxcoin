@@ -1,39 +1,39 @@
-SikretCoin Core
+UndrxCoin Core
 =====================
 
 Setup
 ---------------------
-[SikretCoin Core](http://SikretCoin.org/wallet) is the original SKRT client and it builds the backbone of the network. However, it downloads and stores the entire history of SKRT transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[UndrxCoin Core](http://UndrxCoin.org/wallet) is the original UNDX client and it builds the backbone of the network. However, it downloads and stores the entire history of UNDX transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run SKRT on your native platform.
+The following are some helpful notes on how to run UNDX on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/skrt-qt (GUI, 32-bit) or bin/32/skrtd (headless, 32-bit)
-- bin/64/skrt-qt (GUI, 64-bit) or bin/64/skrtd (headless, 64-bit)
+- bin/32/undx-qt (GUI, 32-bit) or bin/32/undxd (headless, 32-bit)
+- bin/64/undx-qt (GUI, 64-bit) or bin/64/undxd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run skrt-qt.exe.
+Unpack the files into a directory, and then run undx-qt.exe.
 
 ### OSX
 
-Drag skrt-qt to your applications folder, and then run skrt-qt.
+Drag undx-qt to your applications folder, and then run undx-qt.
 
 ### Need Help?
 
-* See the documentation at the [SKRT Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [UNDX Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [SKRT Forum](http://forum.SikretCoin.org/).
-* Join one of our Slack groups [SKRT Slack Groups](https://SikretCoin.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [UNDX Forum](http://forum.UndrxCoin.org/).
+* Join one of our Slack groups [UNDX Slack Groups](https://UndrxCoin.org/slack-logins/).
 
 Building
 ---------------------
-The following are developer notes on how to build SKRT on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build UNDX on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build SKRT on your native platform. 
 
 Development
 ---------------------
-The SikretCoin repo's [root README](https://github.com/sikretcoin/SikretCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The UndrxCoin repo's [root README](https://github.com/undrxcoin/UndrxCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +55,8 @@ The SikretCoin repo's [root README](https://github.com/sikretcoin/SikretCoin/blo
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [SKRT](http://forum.SikretCoin.org/) forum.
-* Join the [SKRT-Dev](https://skrt-dev.slack.com/) Slack group ([Sign-Up](https://skrt-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [UNDX](http://forum.UndrxCoin.org/) forum.
+* Join the [UNDX-Dev](https://undx-dev.slack.com/) Slack group ([Sign-Up](https://undx-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

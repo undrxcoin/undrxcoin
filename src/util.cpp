@@ -2,12 +2,12 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The SikretCoin developers
+// Copyright (c) 2018 The UndrxCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/skrt-config.h"
+#include "config/undx-config.h"
 #endif
 
 #include "util.h"
@@ -106,7 +106,7 @@ std::string to_internal(const std::string&);
 
 using namespace std;
 
-//SKRT only features
+//UNDX only features
 bool fMasterNode = false;
 string strMasterNodePrivKey = "";
 string strMasterNodeAddr = "";
@@ -114,7 +114,7 @@ bool fLiteMode = false;
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
 int nObfuscationRounds = 2;
-int nAnonymizeSikretCoinAmount = 1000;
+int nAnonymizeUndrxCoinAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -232,8 +232,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "skrt" is a composite category enabling all SikretCoin-related debug output
-            if (ptrCategory->count(string("skrt"))) {
+            // "undx" is a composite category enabling all UndrxCoin-related debug output
+            if (ptrCategory->count(string("undx"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swifttx"));
                 ptrCategory->insert(string("masternode"));
@@ -397,7 +397,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "skrt";
+    const char* pszModule = "undx";
 #endif
     if (pex)
         return strprintf(
@@ -418,13 +418,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\SikretCoin
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\SikretCoin
-// Mac: ~/Library/Application Support/SikretCoin
-// Unix: ~/.skrt
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\UndrxCoin
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\UndrxCoin
+// Mac: ~/Library/Application Support/UndrxCoin
+// Unix: ~/.undx
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "SikretCoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "UndrxCoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -436,10 +436,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "SikretCoin";
+    return pathRet / "UndrxCoin";
 #else
     // Unix
-    return pathRet / ".SikretCoin";
+    return pathRet / ".UndrxCoin";
 #endif
 #endif
 }
@@ -486,7 +486,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "skrt.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "undx.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -505,7 +505,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty skrt.conf if it does not exist
+        // Create empty undx.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -516,7 +516,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override skrt.conf
+        // Don't overwrite existing settings so command line settings override undx.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);
@@ -531,7 +531,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "skrtd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "undxd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

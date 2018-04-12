@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * SKRT RPC command dispatcher.
+ * UNDX RPC command dispatcher.
  */
 class CRPCTable
 {

@@ -1,0 +1,26 @@
+# /etc/conf.d/undxd: config file for /etc/init.d/undxd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/undx/undx.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/undxd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/undxd.pid"
+
+# Where to write undxd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/undxd"
+
+# User and group to own undxd process
+#BITCOIND_USER="undx"
+#BITCOIND_GROUP="undx"
+
+# Path to undxd executable
+#BITCOIND_BIN="/usr/bin/undxd"
+
+# Nice value to run undxd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
